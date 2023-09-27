@@ -1,0 +1,116 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  row-gap: 5px;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 47%, rgb(255, 125, 212) 115%);
+  column-gap: 5px;
+  height: 100vh;
+  align-content: center;
+}
+
+.box {
+  border: 1.5px ridge;
+  height: 100px;
+  width: 100px;
+  display: grid;
+  filter: drop-shadow(2px 4px 6px black);
+  align-items: center;
+  background: transparent
+}
+
+.box:hover {
+  transition: 500ms;
+  cursor: pointer;
+  transform: scale3d(1.1, 1.1, 1.5);
+  z-index: 1;
+  background-color: aliceblue;
+}
+
+.box img {
+  height: 90px;
+  margin: auto;
+}
+
+.Reset_btn {
+  height: 40px;
+  width: 20vmin;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 8%;
+  transform: translate(-50%, -50%);
+  border: 0px;
+  filter: drop-shadow(2px 4px 6px black);
+  font-weight: 600;
+  background: repeating-linear-gradient(45deg, rgb(129, 147, 248), transparent 126px);
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.Reset_btn:hover {
+  background-color: rgb(129, 147, 248);
+}
+
+.playerTurn {
+  position: absolute;
+  display: initial;
+  transform: translate(-50%, 100%);
+
+}
+
+.win_modal_box_wrap {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vmax;
+  height: 80%;
+  position: absolute;
+  background: repeating-linear-gradient(241deg, white, transparent 100%);
+  border-radius: 6px;
+  filter: drop-shadow(2px 4px 6px #f5e2a5);
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.win_modal_box_wrap h1 {
+  font-size: 15vmin;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.win_modal_box_wrap img {
+  height: 11vw;
+}
+
+.win_modal_box_wrap button {
+  height: 40px;
+  width: 20vmin;
+  border-radius: 8px;
+  border: none;
+  background: #23f323;
+  font-weight: 700;
+  cursor: pointer;
+}
