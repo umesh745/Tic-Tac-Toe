@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./App.css";
 import { ModalPopup } from "./components/Modal";
 import { images } from "./theme/imageConstant";
 import { appConstant } from "./theme/appConstant";
-
-let firstMove = false;
 
 const App = () => {
   const [turn, setTurn] = useState(null);
@@ -91,15 +89,16 @@ const App = () => {
       }
     }
   };
-  const playerTurn = () => {
-    return !Object?.values(turn ?? {})?.at(-1)
-      ? appConstant.xturn
-      : appConstant.oturn;
-  };
   const modalResponse = () => {
     setTurn(null);
     setWinner(false);
   };
+
+  const playerTurn = useMemo(() => {
+    return !Object?.values(turn ?? {})?.at(-1)
+      ? appConstant.xturn
+      : appConstant.oturn;
+  }, [Object?.values(turn ?? {})?.at(-1)]);
 
   React.useEffect(() => {
     checkHorzontalWin();
@@ -110,12 +109,13 @@ const App = () => {
   return (
     <>
       <div className="App">
-        <h1 className="playerTurn">{playerTurn()}</h1>
+        <h1 className="playerTurn">{playerTurn}</h1>
         <div className="container">{arr}</div>
         <button className="Reset_btn" onClick={() => setTurn(null)}>
           RESET
         </button>
       </div>
+
       {winner && (
         <ModalPopup msg={winner} open={winner} onBtnClick={modalResponse} />
       )}
