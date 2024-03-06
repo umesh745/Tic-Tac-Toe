@@ -95,6 +95,7 @@ const App = () => {
   };
 
   const playerTurn = useMemo(() => {
+    console.log("Rendering+++++++++++");
     return !Object?.values(turn ?? {})?.at(-1)
       ? appConstant.xturn
       : appConstant.oturn;
